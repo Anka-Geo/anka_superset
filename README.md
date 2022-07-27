@@ -23,7 +23,7 @@ This is a customized version of official superset repo.
 
 ## Modification
 
-- Change `"EMBEDDED_SUPERSET": False` to `"EMBEDDED_SUPERSET": True ` in [config.py](https://github.com/Anka-Geo/anka_superset/blob/master/superset/config.py) file. (Line #405)
+- Change `"EMBEDDED_SUPERSET": False` to `"EMBEDDED_SUPERSET": True` in [config.py](https://github.com/Anka-Geo/anka_superset/blob/master/superset/config.py) file. (Line #405)
 
 # Superset
 
