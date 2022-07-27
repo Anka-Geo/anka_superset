@@ -402,7 +402,7 @@ DEFAULT_FEATURE_FLAGS: Dict[str, bool] = {
     "DASHBOARD_FILTERS_EXPERIMENTAL": False,
     "GLOBAL_ASYNC_QUERIES": False,
     "VERSIONED_EXPORT": True,
-    "EMBEDDED_SUPERSET": False,
+    "EMBEDDED_SUPERSET": True,
     # Enables Alerts and reports new implementation
     "ALERT_REPORTS": False,
     "DASHBOARD_RBAC": False,
