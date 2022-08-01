@@ -15,11 +15,13 @@
 # limitations under the License.
 #
 x-superset-image: &superset-image apache/superset:${TAG:-latest-dev}
-x-superset-depends-on: &superset-depends-on
+x-superset-depends-on:
+  &superset-depends-on
   - db
   - redis
-x-superset-volumes: &superset-volumes
+x-superset-volumes:
   # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
+  &superset-volumes
   - ./docker:/app/docker
   - superset_home:/app/superset_home
 
@@ -39,12 +41,13 @@ services:
     restart: unless-stopped
     volumes:
       - db_home:/var/lib/postgresql/data
-
+    ports:
+      - 5440:5432
   superset:
     env_file: docker/.env-non-dev
     image: *superset-image
     container_name: superset_app
-    command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+    command: [ "/app/docker/docker-bootstrap.sh", "app-gunicorn" ]
     user: "root"
     restart: unless-stopped
     ports:
@@ -55,7 +58,7 @@ services:
   superset-init:
     image: *superset-image
     container_name: superset_init
-    command: ["/app/docker/docker-init.sh"]
+    command: [ "/app/docker/docker-init.sh" ]
     env_file: docker/.env-non-dev
     depends_on: *superset-depends-on
     user: "root"
@@ -64,7 +67,7 @@ services:
   superset-worker:
     image: *superset-image
     container_name: superset_worker
-    command: ["/app/docker/docker-bootstrap.sh", "worker"]
+    command: [ "/app/docker/docker-bootstrap.sh", "worker" ]
     env_file: docker/.env-non-dev
     restart: unless-stopped
     depends_on: *superset-depends-on
@@ -74,7 +77,7 @@ services:
   superset-worker-beat:
     image: *superset-image
     container_name: superset_worker_beat
-    command: ["/app/docker/docker-bootstrap.sh", "beat"]
+    command: [ "/app/docker/docker-bootstrap.sh", "beat" ]
     env_file: docker/.env-non-dev
     restart: unless-stopped
     depends_on: *superset-depends-on
