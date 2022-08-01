@@ -25,6 +25,9 @@ This is a customized version of official superset repo.
 
 - Change `"EMBEDDED_SUPERSET": False` to `"EMBEDDED_SUPERSET": True` in [config.py](https://github.com/Anka-Geo/anka_superset/blob/master/superset/config.py) file. (Line #405)
 
+- Change `"WTF_CSRF_ENABLED = True` to `"WTF_CSRF_ENABLED = False` in [config.py](https://github.com/Anka-Geo/anka_superset/blob/master/superset/config.py) file. (Line #213)
+
+
 # Superset
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
